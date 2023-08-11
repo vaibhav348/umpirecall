@@ -1,0 +1,16 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  font-weight: 100;
+}
+.main {
+  display: flex;
+}
+.main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80vh;
+}
