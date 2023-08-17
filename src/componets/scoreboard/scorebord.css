@@ -11,8 +11,8 @@ div#root {
     display: flex;
     justify-content: space-around;
     margin: 1rem;
-    font-size: 1.5rem;
-    background: #af8bff;
+    font-size: 1.3rem;
+    background: #ecddfb;
     border: 6px double white;
     border-radius: 5px;
     padding: 10px 0px;
@@ -23,26 +23,40 @@ p.runs, p.over {
 
 
 button.decision-btn {
-    padding: 10px;
     text-transform: uppercase;
-    margin: 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 4px;
     box-shadow: 2px 2px 10px gray;
     font-size: 1rem;
     background-color: white;
-    border: 2px solid #af8bff;
-    width: 80px;
+    border: 1px solid #af8bff;
+    width: 116px;
     height: 80px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; 
-  }
-  button.decision-btn:hover{
-      background-color: #0056b3;
-    transform: scale(1.1);
-    width: 80px;
+    transition: background-color 0.3s ease, transform 0.3s ease-out;
+}
+.decision-btn-noball{
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px gray;
+    font-size: 1rem;
+    background-color: white;
+    border: 1px solid #af8bff;
+    width: 116px;
     height: 80px;
-    color: aliceblue;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-out; 
+}
+button.decision-btn-noball{
+  
+    width: 116px;
+    height: 80px;
+  }
+  button.decision-btn:active{
+    transform: scale(1.1);
+    width: 116px;
+    height: 80px;
   }
   .typeofball {
     display: grid;
@@ -50,11 +64,30 @@ button.decision-btn {
     grid-template-columns: auto auto auto;
     padding: 10px;
 }
-img {
-    width: 90%;
-    padding-right: 54px;
+.cimg {
+    width: 77%;
     filter: drop-shadow(4px 4px 70px #8a2be2);
 }
+button.undubtn {
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px #c21616;
+    font-size: 1.2rem;
+    z-index: 1;
+    background-color: #f9f4ff;
+    border: 1px solid #ce1111;
+    width: 64px;
+    height: 32px;
+    cursor: pointer;
+    /* transition: background-color 0.3s ease, transform 0.3s ease-out; */
+}
+    .middle {
+        display: flex;
+        justify-content: unset;
+        align-items: center;
+    }
+
 .umpire-heading {
     padding: 10px;
     text-transform: uppercase;
@@ -75,6 +108,92 @@ img {
    
     .scorecard {
         display: block;
-        height: 90vh;
+        height: 80vh;
     }
     }
+
+
+    
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  #closePopup {
+    float: right;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .noballhandler {
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    background-color: white;
+  
+    width: -webkit-fill-available;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px #ffffff;
+      position: fixed;
+}
+.keypad {
+    height: 240px;
+}
+.keypad-buttons {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+}
+button#noballbtn {
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 2px 2px 10px gray;
+    font-size: 1rem;
+    background-color: white;
+    border: 1px solid #af8bff;
+    width: 106px;
+    height: 64px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease-out;
+}
+section.tenballrun {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    background: #f9f1ff;;
+    /* border: 6px double white; */
+    border-radius: 3px;
+    padding: 7px 0px;
+}
+p.tenballrun {
+    display: flex;
+    justify-content: space-around;
+    /* margin: 1rem; */
+    font-size: 1.2rem;
+    color: #be77ff;
+    letter-spacing: 2px;
+    font-weight: 600;
+    /* background: #eedffb; */
+    /* border: 6px double white; */
+    border-radius: 3px;
+    padding: 7px 0px;
+}

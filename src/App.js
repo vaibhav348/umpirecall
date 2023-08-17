@@ -9,10 +9,38 @@ const App = () => {
  <>
   <Header/>
  <ScoreBorde />
-  <Footer/>
+  {/* <Footer/> */}
 
  </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
