@@ -10,14 +10,13 @@ div#root {
 .runview {
     display: flex;
     justify-content: space-around;
-    margin: 1rem;
     font-size: 1.3rem;
-    background: #ecddfb;
-    border: 6px double white;
-    border-radius: 5px;
+    /* background: rgb(245 245 245); */
+    border: 1px double rgb(255, 255, 255);
     padding: 10px 0px;
 }
 p.runs, p.over {
+    
     text-shadow: 1px 1px 6px white;
 }
 
@@ -25,13 +24,13 @@ p.runs, p.over {
 button.decision-btn {
     text-transform: uppercase;
     text-align: center;
-    border-radius: 4px;
     box-shadow: 2px 2px 10px gray;
-    font-size: 1rem;
+    font-size: 1.3rem;
     background-color: white;
-    border: 1px solid #af8bff;
+    border: 1px solid #0c04063d;
     width: 116px;
     height: 80px;
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease-out;
 }
@@ -42,7 +41,7 @@ button.decision-btn {
     box-shadow: 2px 2px 10px gray;
     font-size: 1rem;
     background-color: white;
-    border: 1px solid #af8bff;
+    border: 1px solid #0c04063d;
     width: 116px;
     height: 80px;
     cursor: pointer;
@@ -65,26 +64,16 @@ button.decision-btn-noball{
     padding: 10px;
 }
 .cimg {
-    width: 77%;
-    filter: drop-shadow(4px 4px 70px #8a2be2);
-}
+    width: 87%;
+   }
 button.undubtn {
-    text-transform: uppercase;
-    text-align: center;
-    border-radius: 4px;
-    box-shadow: 0px 0px 10px #c21616;
-    font-size: 1.2rem;
-    z-index: 1;
-    background-color: #f9f4ff;
-    border: 1px solid #ce1111;
-    width: 64px;
-    height: 32px;
-    cursor: pointer;
-    /* transition: background-color 0.3s ease, transform 0.3s ease-out; */
+    font-size: 2rem;
+    background: transparent;
+    border: none;
 }
     .middle {
         display: flex;
-        justify-content: unset;
+        justify-content: center;
         align-items: center;
     }
 
@@ -108,7 +97,7 @@ button.undubtn {
    
     .scorecard {
         display: block;
-        height: 80vh;
+        height: 85vh;
     }
     }
 
@@ -148,7 +137,7 @@ button.undubtn {
     background-color: white;
   
     width: -webkit-fill-available;
-    border-radius: 5px;
+    
     box-shadow: 0px 0px 15px #ffffff;
       position: fixed;
 }
@@ -163,11 +152,11 @@ button.undubtn {
 button#noballbtn {
     text-transform: uppercase;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 2px;
     box-shadow: 2px 2px 10px gray;
     font-size: 1rem;
     background-color: white;
-    border: 1px solid #af8bff;
+    border: 1px solid #0c04063d;
     width: 106px;
     height: 64px;
     cursor: pointer;
@@ -175,25 +164,23 @@ button#noballbtn {
 }
 section.tenballrun {
     display: flex;
+    
     justify-content: space-around;
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
     letter-spacing: 2px;
-    background: #f9f1ff;;
-    /* border: 6px double white; */
+    background: #f5f5f5;;
+   color: rgb(66, 66, 66);
     border-radius: 3px;
     padding: 7px 0px;
 }
 p.tenballrun {
     display: flex;
     justify-content: space-around;
-    /* margin: 1rem; */
     font-size: 1.2rem;
-    color: #be77ff;
+    color: #000000;
     letter-spacing: 2px;
-    font-weight: 600;
-    /* background: #eedffb; */
-    /* border: 6px double white; */
+    font-family: system-ui;
     border-radius: 3px;
     padding: 7px 0px;
 }

@@ -6,10 +6,10 @@ import ScoreBorde from './componets/scoreboard/ScoreBorde.jsx'
 const App = () => {
   
   return (
- <>
-  <Header/>
+<>
+{/* <Header /> */}
  <ScoreBorde />
-  {/* <Footer/> */}
+  <Footer/>
 
  </>
   )

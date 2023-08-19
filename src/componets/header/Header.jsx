@@ -1,9 +1,14 @@
+
 import "./header.css"
-const Header = () => {
+const Header = ({handleUndu}) => {
+ 
+  
+    
+  
   return (
     <header classNameName="header">
-    <h1 className='headertitle'>Score-Board</h1>
-    <button className="undubtn">undu</button>
+    <h1 className='headertitle'>UMPIRE-CALL</h1>
+    <button className="undubtn" onClick={handleUndu}>⟳</button>
    </header>
   )
 }
