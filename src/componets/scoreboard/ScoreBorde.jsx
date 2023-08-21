@@ -11,11 +11,12 @@ const ScoreBorde = () => {
     const [out, setOut] = useState(0);
     const [ballCount, setBallCount] = useState(0);
     const [over, setOver] = useState(0)
-    const [keypadVisible, setKeypadVisible] = useState(false);
+    const [outArray, setOutArray] = useState([])
+    const [flag, setFlag] = useState([])
+    const [keypadVisible, setKeypadVisible] = useState();
     const [selectedValue, setSelectedValue] = useState(null);
     const [valuesArray, setValuesArray] = useState([]);
-    const lastTenNumbers = valuesArray.slice(-10);
-
+    const lastTenNumbers = flag.slice(-6);
     //noballdata
     const handleKeypadOpen = () => {
         if (out >= 10) {
@@ -32,7 +33,8 @@ const ScoreBorde = () => {
     };
     const handleKeypadSave = (value) => {
         setSelectedValue(value);
-        setValuesArray([...valuesArray, value]);
+        setValuesArray([...valuesArray, 1+value]);
+        setFlag([...flag,"NB"+value])
     };
 
     //handel OUT
@@ -41,12 +43,16 @@ const ScoreBorde = () => {
             alert(`ALL PLAYER OUT & TARGET IS ${calculateSum()} !!!`)
         }
         else {
-            setOut(out + 1);
+            setOut(out+1)
             handleBowl();
-            
-        setValuesArray([...valuesArray, 0]);
+        setOutArray([...outArray, 1]);
+        setFlag([...flag,"W"])
         }
     }
+    const outSum = () => {
+        const sum = outArray.reduce((accumulator, currentValue) => accumulator + currentValue , 0);
+        return sum;
+    };
 
     //handel run and ball whan all out
     const handelBallRunOut = () => {
@@ -73,54 +79,62 @@ const ScoreBorde = () => {
         setValuesArray([...valuesArray, 0]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,0])
     }
     const handelOne = () => {
         setValuesArray([...valuesArray, 1]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,1])
     }
     const handelTow = () => {
         setValuesArray([...valuesArray, 2]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,2])
     }
     const handelThree = () => {
         setValuesArray([...valuesArray, 3]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,3])
     }
     const handelFour = () => {
         setValuesArray([...valuesArray, 4]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,4])
     }
     const handelFive = () => {
         setValuesArray([...valuesArray, 5]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,5])
     }
     const handelSix = () => {
         setValuesArray([...valuesArray, 6]);
         handleBowl();
         handelBallRunOut()
+        setFlag([...flag,6])
     }
   
     const calculateSum = () => {
-        const sum = valuesArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        const sum = valuesArray.reduce((accumulator, currentValue) => accumulator + currentValue , 0);
         return sum;
     };
-
 const handleUndu=()=>{
         if(ballCount<=5 && ballCount>0){
         valuesArray.pop();
+        flag.pop();
         setBallCount(ballCount-1)
     }
         else if(over===0 && ballCount===0 ){
-        valuesArray.pop();
+        
         alert("plese enter runs")
     }  
     else{
-        valuesArray.pop();
+    flag.pop();
+    valuesArray.pop();
         setOver(over-1)
         setBallCount(5)
     }
@@ -132,7 +146,7 @@ const handleUndu=()=>{
 
             <div className="upper">
                 <div className="runview">
-                    <p className='runs'>Runs/Out : {calculateSum()}/{out}</p>
+                    <p className='runs'>Runs/Out : {calculateSum()}/{outSum()}</p>
                     <p className='over'>Over:{over}.{ballCount}</p>
 
                 </div>
@@ -189,4 +203,4 @@ const handleUndu=()=>{
     )
 }
 
-export default ScoreBorde
+export default ScoreBorde;

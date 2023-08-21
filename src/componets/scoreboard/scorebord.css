@@ -70,11 +70,13 @@ button.undubtn {
     font-size: 2rem;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
     .middle {
         display: flex;
         justify-content: center;
         align-items: center;
+        
     }
 
 .umpire-heading {

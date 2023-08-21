@@ -17,7 +17,7 @@ const Keypad = ({ onClose, onSave }) => {
       <div className="keypad">
           <h4 style={{textAlign:"center", fontWeight:400 , margin:"5px" ,fontFamily:"system-ui" , color:"gray" }}>Extra Run on No-ball {selectedNumber}</h4>
           <div className="keypad-buttons">
-              {[1, 2, 3, 4, 5, 6, 7].map((number) => (
+              {[0,1, 2, 3, 4, 5, 6].map((number) => (
                   <button id="noballbtn"
                       key={number}
                       onClick={() => handleNumberClick(number)}
