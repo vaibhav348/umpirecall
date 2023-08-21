@@ -16,7 +16,7 @@ const ScoreBorde = () => {
     const [keypadVisible, setKeypadVisible] = useState();
     const [selectedValue, setSelectedValue] = useState(null);
     const [valuesArray, setValuesArray] = useState([]);
-    const lastTenNumbers = flag.slice(-6);
+    const lastTenNumbers = flag.slice(-10);
     //noballdata
     const handleKeypadOpen = () => {
         if (out >= 10) {
