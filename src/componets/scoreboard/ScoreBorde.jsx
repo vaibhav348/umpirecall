@@ -80,11 +80,20 @@ const ScoreBorde = () => {
 
 
     return (
+        <>
+            <Header undoLastAction={undoLastAction} runWicketData={runWicketData} />
         <div className='scorecard'>
 
-            <Header undoLastAction={undoLastAction} runWicketData={runWicketData} />
 
             <div className="upper">
+                <div className="runview">
+                    <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
+                    <p className='over'>Over:{over}.{ballCount}</p>
+                </div>
+                <div className="runview">
+                    <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
+                    <p className='over'>Over:{over}.{ballCount}</p>
+                </div>
                 <div className="runview">
                     <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
                     <p className='over'>Over:{over}.{ballCount}</p>
@@ -98,13 +107,13 @@ const ScoreBorde = () => {
                 <section className="tenballrun">
                     {lastTenNumbers.length === 0 ? (
                         <p className="runoftenballs" >Enter first Run...</p>
-                    ) :
+                        ) :
                         (
                             <div style={{ display: "flex" }}>
 
                                 {lastTenNumbers.map((data, index) => (
                                     <li className="runoftenballs" key={index}> {data.runs}</li>
-                                ))}
+                                    ))}
                             </div>
                         )}
 
@@ -128,6 +137,7 @@ const ScoreBorde = () => {
             </div>
         </div>
 
+                                    </>
     )
 }
 

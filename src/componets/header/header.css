@@ -5,9 +5,9 @@ header {
   box-shadow: 0px 0px 10px #c1c1c1;
   
   align-items: center;
-  position: fixed;
+  /* position: fixed */
   justify-content: space-between;
-top: 0;
+/* top: 0; */
 }
 h3.history {
   text-transform: uppercase;
@@ -52,6 +52,7 @@ h3.history {
 .navmenu {
   height: 50px;
     align-items: center;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     padding-right: 2vh;

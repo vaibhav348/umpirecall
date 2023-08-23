@@ -1,0 +1,68 @@
+
+
+.App {
+  text-align: center;
+  background-color: #d8d9ff6e;
+  padding: 40px 10px;
+  font-family: monospace;
+  margin: 10%;
+  text-transform: uppercase;
+  border-radius: 10px;
+  }
+  .homepage {
+    height: 82vh;
+    /* background-color: #d8d7fa4f; */
+    display: flex;
+    flex-direction: column;
+}
+  
+  label {
+    margin-right: 10px;
+  }
+  select {
+    padding: 5px 22px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px auto;
+  }
+  
+  .start-btn {
+    margin: 10px 0px 0px 0px;
+    padding: 10px 15px;
+    background-color: #7880ff;
+    color: white;
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .start-btn:hover {
+    background-color:rgb(0, 77, 77);
+  }
+  .middle{
+    
+    margin: auto;
+  }
+  .cimg{
+    width: 90%;
+  }
+  .headerhome{
+    height: 100px;
+    margin: 0;
+    padding-right: 2vh;
+   padding-left: 2vh;
+  }
+  .headertitlehome{
+    background-color: whitesmoke;
+    padding:10px;
+    margin-bottom: 20px;
+    box-shadow: 1px 0 3px gray;
+    font-family: system-ui;
+    font-size: 1.5rem;
+  }

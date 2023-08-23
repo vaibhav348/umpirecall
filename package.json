@@ -9,6 +9,8 @@
     "from": "^0.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "react-routes": "^0.2.6",
     "react-scripts": "5.0.1",
     "use-undo": "^1.1.1",
     "web-vitals": "^2.1.4"
