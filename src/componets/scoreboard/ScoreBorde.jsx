@@ -82,62 +82,77 @@ const ScoreBorde = () => {
     return (
         <>
             <Header undoLastAction={undoLastAction} runWicketData={runWicketData} />
-        <div className='scorecard'>
+            <div className='scorecard'>
 
 
-            <div className="upper">
-                <div className="runview">
-                    <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                    <p className='over'>Over:{over}.{ballCount}</p>
+                <div className="upper">
+                    <div className="runview">
+                       <div className="firstsection">
+
+                        <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
+                        <p className='over'>Over:{over}.{ballCount}</p>
+                       </div>
+                       <div className="team">
+                        <div className="team1">
+                            <p className="teamtitle">
+                                Team-1
+                            </p>
+                            <p className="target">
+                                Target:123(10.7)
+                            </p>
+
+                        </div>
+                        <div className="team2">
+                            <p className="teamtitle">
+                                Team-2
+                            </p>
+                            <p className="target"> playing...</p>
+                        </div>
+                    </div>
+                    </div>
+
+                  
+
+                    <div className="middle">
+                        <img className="cimg" src={cimg} alt="Cricket IMG" style={{ width: "90%" }} />
+                    </div>
                 </div>
-                <div className="runview">
-                    <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                    <p className='over'>Over:{over}.{ballCount}</p>
-                </div>
-                <div className="runview">
-                    <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                    <p className='over'>Over:{over}.{ballCount}</p>
-                </div>
-                <div className="middle">
-                    <img className="cimg" src={cimg} alt="Cricket IMG" />
-                </div>
-            </div>
-            <div className="umpire">
-                <p className="tenballrun">Runs of Last 10 Balls</p>
-                <section className="tenballrun">
-                    {lastTenNumbers.length === 0 ? (
-                        <p className="runoftenballs" >Enter first Run...</p>
+                <div className="umpire">
+                    <p className="tenballrun">Runs of Last 10 Balls</p>
+                    <section className="tenballrun">
+                        {lastTenNumbers.length === 0 ? (
+                            <p className="runoftenballs" >Enter first Run...</p>
                         ) :
-                        (
-                            <div style={{ display: "flex" }}>
+                            (
+                                <div style={{ display: "flex" }}>
 
-                                {lastTenNumbers.map((data, index) => (
-                                    <li className="runoftenballs" key={index}> {data.runs}</li>
+                                    {lastTenNumbers.map((data, index) => (
+                                        <li className="runoftenballs" key={index}> {data.runs}</li>
                                     ))}
-                            </div>
-                        )}
+                                </div>
+                            )}
 
-                </section>
-            </div>
-
-            <div className="typeofball">
-                <div className="noballhandler">
-                    {isPopupOpen && <KeypadPopup onSelectNumber={setSelectedNumber}
-                        setIsPopupOpen={setIsPopupOpen} handleNoBallRuns={handleNoBallRuns} />}
+                    </section>
                 </div>
-                <button className='decision-btn-noball' onClick={openPopup}>No-Ball</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 1)}>Wicket</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 0)} value={0}> 0</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(1, 0)} value={1}>1</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(2, 0)} value={2}>2</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(3, 0)} value={3}>3</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(4, 0)} value={4}>4</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(5, 0)} value={5}>5</button>
-                <button className='decision-btn-noball' onClick={() => updateRunWicket(6, 0)} value={6}>6</button>
-            </div>
-        </div>
 
-                                    </>
+                <div className="typeofball">
+                    <div className="noballhandler">
+                        {isPopupOpen && <KeypadPopup onSelectNumber={setSelectedNumber}
+                            setIsPopupOpen={setIsPopupOpen} handleNoBallRuns={handleNoBallRuns} />}
+                    </div>
+                    <button className='decision-btn-noball' onClick={openPopup}>No-Ball</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 1)}>Wicket</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 0)} value={0}> 0</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(1, 0)} value={1}>1</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(2, 0)} value={2}>2</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(3, 0)} value={3}>3</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(4, 0)} value={4}>4</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(5, 0)} value={5}>5</button>
+                    <button className='decision-btn-noball' onClick={() => updateRunWicket(6, 0)} value={6}>6</button>
+                </div>
+            </div>
+
+        </>
     )
 }
 

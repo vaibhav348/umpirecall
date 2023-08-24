@@ -15,7 +15,7 @@ const App = () => {
   <Route path='/' element= {<Home />} />
  <Route path='/ScoreBorde' element={<ScoreBorde />} />
  </Routes>
-  <Footer/>
+  {/* <Footer/> */}
 </BrowserRouter>
  </>
   )

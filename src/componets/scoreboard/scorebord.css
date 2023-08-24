@@ -23,23 +23,30 @@ li.runoftenballs {
 .scorecard {
     display: flex;
     justify-content: space-around;
-    height: 84vh;
+    height:fit-content;
     align-items: center;
 }
-.runview {
+.firstsection, .team {
     display: flex;
     justify-content: space-around;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     /* background: rgb(245 245 245); */
     border: 1px double rgb(255, 255, 255);
     padding: 10px 0px;
 }
-p.runs, p.over {
+p.runs, p.over, .team1, .team2 {
     
     text-shadow: 1px 1px 6px white;
 }
 
-
+.team {
+    margin: 0px 20px;
+    text-transform: uppercase;
+    font-family: system-ui;
+    border-radius: 10px;
+    background: -webkit-linear-gradient(#f4f5ff, #e4fff7);
+    border: 1px solid #d5d5d5;
+}
 button.decision-btn {
     text-transform: uppercase;
     text-align: center;
@@ -83,7 +90,6 @@ button.decision-btn-noball{
     padding: 10px;
 }
 .cimg {
-    width: 87%;
     opacity: .5;
     z-index: -1;
     filter: hue-rotate(217deg);
@@ -115,12 +121,14 @@ button.undubtn {
    
 .scorecard {
     display: block;
+    margin-top: 4rem;
     height: 105vh;
 }
 }
 @media screen and (max-width: 450px){
    
     .scorecard {
+        margin-top: 4rem;
         display: block;
         height: 85vh;
     }
