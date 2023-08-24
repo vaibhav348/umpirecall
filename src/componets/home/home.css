@@ -66,3 +66,29 @@
     font-family: system-ui;
     font-size: 1.5rem;
   }
+  .error-text{
+    color: red;
+    text-transform: capitalize;
+    animation: error  1s ;
+  }
+  @keyframes error {
+    0% {
+       opacity: 0;
+    }
+    20% {
+      opacity: .2;
+    }
+    40% {
+      opacity: .4;
+    }
+    60% {
+      opacity: .6;
+    }
+    80% {
+      opacity: .8;
+    }
+    100% {
+      opacity: 1;
+    }
+    
+  }
