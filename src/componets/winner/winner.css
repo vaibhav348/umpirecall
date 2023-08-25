@@ -1,0 +1,99 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+  }
+  span {
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #cd0000;
+}
+  .winnerheader {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 50px;
+    box-shadow: 0px 0px 10px #c1c1c1;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    justify-content: space-between;
+  top: 0;
+  padding: 0px 1rem;
+  }
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+  
+  .headertitle{
+    font-family: system-ui;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px #ffffff;
+    font-size: 1.5rem;
+  }
+  h1.heading {
+    padding: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: x-large;
+    color: black;
+   }
+   img.vs {
+    width: 20vh;
+}
+h1.teamname {
+  font-family: fantasy;
+  letter-spacing: 3px;
+}
+.regult_heading{
+  font-family: system-ui;
+  font-weight: 400;
+}
+  
+  
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.zoom-in-out-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  height: 53vh;
+  
+  animation: zoom-in-zoom-out 5s ease infinite;
+}
+
+.zoom-in-out-box img {
+  
+  padding: inherit;
+  
+  height: 200px;
+  width: 200px;
+}
+
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.bottom-div{
+  margin: auto;
+  
+  text-align: center;
+    font-size: 1.5rem;
+}

@@ -3,6 +3,7 @@ import cimg from "../../assets/c.png";
 import Header from "../header/Header";
 import { useState } from 'react'
 import Home from "../home";
+import { useNavigate } from "react-router-dom";
 // import { toHaveErrorMessage } from "@testing-library/jest-dom/matchers";
 
 function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
@@ -27,7 +28,8 @@ function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
 
 
 
-const ScoreBorde = ({teamOver}) => {
+const ScoreBorde = ({teamOver , winningdata}) => {
+    const navigate = useNavigate();
     const [runWicketData, setRunWicketData] = useState([]);
     const [currentRun, setCurrentRun] = useState(0);
     const [currentWicket, setCurrentWicket] = useState(0);
@@ -37,10 +39,58 @@ const ScoreBorde = ({teamOver}) => {
     const [selectedNumber, setSelectedNumber] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers));
+const [teamone, setTeamOne] = useState( teamOver.map((team)=>team.teamA)); 
+const [teamtwo, setTeamTwo] = useState( teamOver.map((team)=>team.teamB)); 
 
 
 
+const [inning, setInning]= useState(1);
+const [target, setTarget]= useState(0)
 
+const handleinneng=()=>{
+    if(inning===1){handlefirstinneng();}
+    else {handlesecondinneng();}
+}
+
+//innenig 1 handle
+const handlefirstinneng=()=>{
+    if(currentWicket>=10 || over>=maxOver){
+        
+        setTarget(currentRun+1);
+        setBallCount(0);
+        setCurrentRun(0);
+        setCurrentWicket(0)
+        setOver(0)
+        setRunWicketData([])
+        setInning(inning+1)
+        alert(`first inning is completed and target is ${currentRun+1} from Team ${teamone} !!!` )
+    }
+}
+// const [winnerteam, setwinnerteam]=useState("");
+// const [lossTeam, setLossTeam]= useState("");
+const handlesecondinneng=()=>{
+    if(currentWicket<10 && over<maxOver && currentRun>target){
+        // setwinnerteam(teamtwo);
+        // setLossTeam(teamone);
+        // alert(`team ${teamtwo} is winner `)
+        winningdata({
+            winnerteam:teamtwo,
+            lossTeam:teamone,
+        })
+        navigate("/index");
+    }
+    else if(currentWicket>=10 || over >= maxOver){
+        // setwinnerteam(teamone);
+        // setLossTeam(teamtwo)
+
+        // alert(`team ${teamone} is winer `);
+        winningdata({
+            winnerteam:teamone,
+            lossTeam:teamtwo,
+          })
+        navigate("/index");
+    }
+}
 
     const openPopup = () => {
         setIsPopupOpen(true);
@@ -51,6 +101,7 @@ const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers)
         setRunWicketData(newRunWicketData);
         setCurrentRun(currentRun + runs);
         setCurrentWicket(currentWicket + wickets);
+
     }
 
 
@@ -63,6 +114,7 @@ const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers)
             setBallCount(0)
             setOver(over + 1)
         }
+        
     };
     const updateRunWicket = (runs, wickets) => {
         const newRunWicketData = [...runWicketData, { runs, wickets, over, ballCount }];
@@ -70,6 +122,7 @@ const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers)
         setCurrentRun(currentRun + runs);
         setCurrentWicket(currentWicket + wickets);
         handleBowl();
+        handleinneng();
     };
 
     const undoLastAction = () => {
@@ -95,36 +148,46 @@ const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers)
                        <div className="firstsection">
 
                         <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                        <p className='over'>Over:{over}.{ballCount}</p>
+                        <p className='over'>Over:{over}.{ballCount}/{maxOver}</p>
                        </div>
                        <div className="team">
                         <div className="team1">
                          
                             <p className="teamtitle">
-                           {
-                            teamOver.map((team)=>
-                            <div>
-                                {team.teamA}
-                            </div>
-                            )
-                           }
+                            {teamone}
                             </p>
                             <p className="target">
-                                Target:123(10.7)
+                            {
+                                (inning===1)
+                                ?
+                                <div>
+Batting
+                                </div>
+                                :
+                                <div>
+
+                                Target:{target}
+                                </div>
+                            }
                             </p>
 
                         </div>
                         <div className="team2">
                             <p className="teamtitle">
-                            {
-                            teamOver.map((team)=>
-                            <div>
-                                {team.teamB}
-                            </div>
-                            )
-                           }
+                           {teamtwo}
                             </p>
-                            <p className="target"> {maxOver}playing...</p>
+                            <p className="target"> 
+                            {
+                                (inning===1)
+                                ?
+                                <div>
+                                    Balling
+                                </div>
+                                :
+                                <div>
+                                    Batting
+                                </div>
+                            }</p>
                         </div>
                     </div>
                     </div>

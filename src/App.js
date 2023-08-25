@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
 import "./App.css";
+import Winner from './componets/winner';
 import ScoreBorde from './componets/scoreboard/ScoreBorde.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './componets/home/index.jsx'
 
 const App = () => {
+  const[winningteamdata, setwinningteamdata]= useState([])
+const winningdata=(teamwindata)=>{
+  setwinningteamdata([teamwindata])
+  console.log(teamwindata)
+}
+
   const [teamOver, setTeamOver]=useState([])
   const addData = (teamOverData) =>{
     setTeamOver([teamOverData])
@@ -14,7 +21,8 @@ const App = () => {
 <BrowserRouter>
 <Routes>
   <Route path='/' element= {<Home addData={addData}/>} />
- <Route path='/ScoreBorde' element={<ScoreBorde teamOver={teamOver} />} />
+ <Route path='/ScoreBorde' element={<ScoreBorde teamOver={teamOver} winningdata={winningdata} />} />
+ <Route path='/index' element={<Winner winningteamdata={winningteamdata}/>} />
  </Routes>
 </BrowserRouter>
  </>
