@@ -22,8 +22,7 @@ const Header = ({ undoLastAction, runWicketData }) => {
 
             <button className="undubtn" onClick={undoLastAction}>⟳</button>
             <button className="icon" onClick={myFunction}>
-              {/* <img src={hbicon} alt="" /> */}
-            </button>
+               </button>
             </div>
           </div>
           <div id="myLinks">

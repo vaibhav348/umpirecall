@@ -1,21 +1,21 @@
-import React from 'react'
-import Footer from "./componets/footer/Footer.jsx"
-import Header from './componets/header/Header.jsx'
-import "./App.css"
+import React, { useState } from 'react'
+import "./App.css";
 import ScoreBorde from './componets/scoreboard/ScoreBorde.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './componets/home/index.jsx'
+
 const App = () => {
-  
+  const [teamOver, setTeamOver]=useState([])
+  const addData = (teamOverData) =>{
+    setTeamOver([teamOverData])
+  }
   return (
 <>
-{/* <Header /> */}
 <BrowserRouter>
 <Routes>
-  <Route path='/' element= {<Home />} />
- <Route path='/ScoreBorde' element={<ScoreBorde />} />
+  <Route path='/' element= {<Home addData={addData}/>} />
+ <Route path='/ScoreBorde' element={<ScoreBorde teamOver={teamOver} />} />
  </Routes>
-  {/* <Footer/> */}
 </BrowserRouter>
  </>
   )

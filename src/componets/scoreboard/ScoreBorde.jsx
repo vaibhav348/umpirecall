@@ -2,8 +2,8 @@ import "./scorebord.css"
 import cimg from "../../assets/c.png";
 import Header from "../header/Header";
 import { useState } from 'react'
-
-
+import Home from "../home";
+// import { toHaveErrorMessage } from "@testing-library/jest-dom/matchers";
 
 function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
     const handleNumberClick = (number) => {
@@ -27,7 +27,7 @@ function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
 
 
 
-const ScoreBorde = () => {
+const ScoreBorde = ({teamOver}) => {
     const [runWicketData, setRunWicketData] = useState([]);
     const [currentRun, setCurrentRun] = useState(0);
     const [currentWicket, setCurrentWicket] = useState(0);
@@ -36,6 +36,11 @@ const ScoreBorde = () => {
     const lastTenNumbers = runWicketData.slice(-10);
     const [selectedNumber, setSelectedNumber] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers));
+
+
+
+
 
     const openPopup = () => {
         setIsPopupOpen(true);
@@ -94,8 +99,15 @@ const ScoreBorde = () => {
                        </div>
                        <div className="team">
                         <div className="team1">
+                         
                             <p className="teamtitle">
-                                Team-1
+                           {
+                            teamOver.map((team)=>
+                            <div>
+                                {team.teamA}
+                            </div>
+                            )
+                           }
                             </p>
                             <p className="target">
                                 Target:123(10.7)
@@ -104,9 +116,15 @@ const ScoreBorde = () => {
                         </div>
                         <div className="team2">
                             <p className="teamtitle">
-                                Team-2
+                            {
+                            teamOver.map((team)=>
+                            <div>
+                                {team.teamB}
+                            </div>
+                            )
+                           }
                             </p>
-                            <p className="target"> playing...</p>
+                            <p className="target"> {maxOver}playing...</p>
                         </div>
                     </div>
                     </div>

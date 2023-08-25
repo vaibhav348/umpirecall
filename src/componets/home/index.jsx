@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom'
 import cimg from '../../assets/c.png'
 import './home.css'
+// import ScoreBorde from '../scoreboard/ScoreBorde';
 const Home = ({addData}) => {
   const [selectedOvers, setSelectedOvers] = useState(0);
   const [teamA, setTeamA] = useState('');
   const [teamB, setTeamB] = useState('');
   const [errors, setErrors] = useState({});
-  // const handleovers = (selectedOvers) => {
-  //      setSelectedOvers()
-  // }
   const navigate = useNavigate();
   const validateForm = () => {
     const newErrors = {};
@@ -34,12 +32,13 @@ const Home = ({addData}) => {
   const handleStartClick = () => {
     const isValid = validateForm();
 
+    addData({
+      selectedOvers:selectedOvers,
+      teamA:teamA,
+      teamB:teamB,
+    })
     if (isValid) {
       // Proceed to the score board or perform other actions
-      addData={
-        teamA:teamA,
-        teamB:teamB
-      }
       navigate('/ScoreBorde');
     }
   };
@@ -82,7 +81,7 @@ const Home = ({addData}) => {
         <img className='cimg' src={cimg} alt='logo'/>
       </div>
     </div>
-    </>
+        </>
   );
 }
 
