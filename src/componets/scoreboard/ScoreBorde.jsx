@@ -35,7 +35,6 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
     const lastTenNumbers = runWicketData.slice(-10);
     const [selectedNumber, setSelectedNumber] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-<<<<<<< HEAD
     const [maxOver, setMexOver] = useState(teamOver.map((team) => team.selectedOvers));
     const [teamone, setTeamOne] = useState(teamOver.map((team) => team.teamA));
     const [teamtwo, setTeamTwo] = useState(teamOver.map((team) => team.teamB));
@@ -49,52 +48,6 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
         if (inning === 1) { handlefirstinneng(); }
         else { handlesecondinneng(); }
     }
-=======
-const [maxOver, setMexOver] = useState( teamOver.map((team)=> team.selectedOvers));
-const [teamone, setTeamOne] = useState( teamOver.map((team)=>team.teamA)); 
-const [teamtwo, setTeamTwo] = useState( teamOver.map((team)=>team.teamB)); 
-
-
-
-const [inning, setInning] = useState(1);
-const [target, setTarget] = useState(0)
-
-const handleinneng=()=>{
-    if(inning === 1){handlefirstinneng();}
-    else {handlesecondinneng();}
-}
-
-//innenig 1 handle
-const handlefirstinneng = () => {
-    if(currentWicket >= 10 || over >= maxOver){
-        
-        setTarget(currentRun+1);
-        setBallCount(0);
-        setCurrentRun(0);
-        setCurrentWicket(0)
-        setOver(0)
-        setRunWicketData([])
-        setInning(inning+1)
-        alert(`first inning is completed and target is ${currentRun+1} from Team ${teamone} !!!` )
-    }
-}
-// const [winnerteam, setwinnerteam]=useState("");
-// const [lossTeam, setLossTeam]= useState("");
-const handlesecondinneng = () => {
-    if(currentWicket<10 && over<maxOver && currentRun>target){
-        // setwinnerteam(teamtwo);
-        // setLossTeam(teamone);
-        // alert(`team ${teamtwo} is winner `)
-        winningdata({
-            winnerteam:teamtwo,
-            lossTeam:teamone,
-        })
-        navigate("/index");
-    }
-    else if(currentWicket >= 10 || over >= maxOver){
-        // setwinnerteam(teamone);
-        // setLossTeam(teamtwo)
->>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
 
     //innenig 1 handle
     const handlefirstinneng = () => {
@@ -176,44 +129,13 @@ const handlesecondinneng = () => {
             <div className = 'scorecard'>
 
 
-<<<<<<< HEAD
                 <div className="upper">
                     <div className="runview">
                         <div className="firstsection">
-=======
-                <div className = "upper">
-                    <div className = "runview">
-                       <div className = "firstsection">
-
-                        <p className = 'runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                        <p className = 'over'>Over:{over}.{ballCount}/{maxOver}</p>
-                       </div>
-                       <div className = "team">
-                        <div className = "team1">
-                         
-                            <p className = "teamtitle">
-                            {teamone}
-                            </p>
-                            <p className = "target">
-                            {
-                                (inning === 1)
-                                ?
-                                <div>
-                                   Batting
-                                </div>
-                                :
-                                <div>
-
-                                Target:{target}
-                                </div>
-                            }
-                            </p>
->>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
 
                             <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
                             <p className='over'>Over:{over}.{ballCount}/{maxOver}</p>
                         </div>
-<<<<<<< HEAD
                         <div className="team">
                             <div className="team1">
 
@@ -253,36 +175,13 @@ const handlesecondinneng = () => {
                                             </div>
                                     }</p>
                             </div>
-=======
-                        <div className = "team2">
-                            <p className = "teamtitle">
-                           {teamtwo}
-                            </p>
-                            <p className = "target"> 
-                            {
-                                (inning === 1)
-                                ?
-                                <div>
-                                    Bowling
-                                </div>
-                                :
-                                <div>
-                                    Batting
-                                </div>
-                            }</p>
->>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
                         </div>
                     </div>
 
 
 
-<<<<<<< HEAD
                     <div className="middle">
                         <img className="cimg" src={cimg} alt="Cricket IMG" style={{ width: "75%" }} />
-=======
-                    <div className = "middle">
-                        <img className = "cimg" src = {cimg} alt = "Cricket IMG" style = {{ width: "90%" }} />
->>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
                     </div>
                 </div>
                 <div className = "umpire">

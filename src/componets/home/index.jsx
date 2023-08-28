@@ -69,23 +69,13 @@ const Home = ({addData}) => {
       </div>
       <div>
         <label>Team A:</label>
-<<<<<<< HEAD
-        <input type="text" maxlength="15" value={teamA} onChange={(e) => setTeamA(e.target.value)} className={errors.teamA ? 'error' : ''}/>
-        {errors.teamA && <p className='error-text'>{errors.teamA}</p>}
-      </div>
-      <div>
-        <label>Team B:</label>
-        <input type="text" maxlength="15" value={teamB} onChange={(e) => setTeamB(e.target.value)} className={errors.teamB ? 'error' : ''}/>
-        {errors.teamB && <p className='error-text'>{errors.teamB}</p>}
-=======
-        <input type = "text" value = {teamA} onChange = {(e) => setTeamA(e.target.value)} className = {errors.teamA ? 'error' : ''}/>
+        <input type = "text" maxlength = "15" value = {teamA} placeholder = 'Batting Team' onChange = {(e) => setTeamA(e.target.value)} className = {errors.teamA ? 'error' : ''}/>
         {errors.teamA && <p className = 'error-text'>{errors.teamA}</p>}
       </div>
       <div>
         <label>Team B:</label>
-        <input type = "text" value = {teamB} onChange = {(e) => setTeamB(e.target.value)} className = {errors.teamB ? 'error' : ''}/>
+        <input type = "text" maxlength = "15" value = {teamB} placeholder = 'Bowling Team' onChange = {(e) => setTeamB(e.target.value)} className = {errors.teamB ? 'error' : ''}/>
         {errors.teamB && <p className = 'error-text'>{errors.teamB}</p>}
->>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
       </div>
       <button onClick = {handleStartClick} className = 'start-btn' >Start</button>
       
