@@ -161,7 +161,7 @@ const handlesecondinneng=()=>{
                                 (inning===1)
                                 ?
                                 <div>
-Batting
+                                   Batting
                                 </div>
                                 :
                                 <div>
@@ -181,7 +181,7 @@ Batting
                                 (inning===1)
                                 ?
                                 <div>
-                                    Balling
+                                    Bowling
                                 </div>
                                 :
                                 <div>
