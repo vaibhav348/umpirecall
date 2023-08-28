@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom'
 import cimg from '../../assets/c.png'
 import './home.css'
-// import ScoreBorde from '../scoreboard/ScoreBorde';
+
 const Home = ({addData}) => {
   const [selectedOvers, setSelectedOvers] = useState(0);
   const [teamA, setTeamA] = useState('');
