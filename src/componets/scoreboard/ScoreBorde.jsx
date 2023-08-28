@@ -167,7 +167,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
                                         (inning === 1)
                                             ?
                                             <div>
-                                                Balling
+                                                Bowling
                                             </div>
                                             :
                                             <div>
