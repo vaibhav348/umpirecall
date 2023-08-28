@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom'
 import cimg from '../../assets/c.png'
 import './home.css'
-// import ScoreBorde from '../scoreboard/ScoreBorde';
+
 const Home = ({addData}) => {
   const [selectedOvers, setSelectedOvers] = useState(0);
   const [teamA, setTeamA] = useState('');
   const [teamB, setTeamB] = useState('');
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  // to handle validations of fields
   const validateForm = () => {
     const newErrors = {};
 
@@ -29,6 +31,7 @@ const Home = ({addData}) => {
     return Object.keys(newErrors).length === 0;
   };
 
+ // to handle start button
   const handleStartClick = () => {
     const isValid = validateForm();
 
@@ -46,26 +49,27 @@ const Home = ({addData}) => {
 
   return (
     <>
-    <div classNameName="headerhome">
-                    <h1 className='headertitlehome'>UMPIRE-CALL</h1>
+    <div classNameName = "headerhome">
+                    <h1 className = 'headertitlehome'>UMPIRE-CALL</h1>
       </div>
-        <div className='homepage'>
-    <div className="App">
+        <div className = 'homepage'>
+    <div className = "App">
       
-      <div className='home'>
+      <div className = 'home'>
         <label>Select Overs:</label>
-        <select value={selectedOvers} onChange={(e) => setSelectedOvers(e.target.value)} className={errors.selectedOvers ? 'error' : ''}>
-          <option value="0" selected disabled>-------</option>
-          <option value="5">5 Overs</option>
-          <option value="10">10 Overs</option>
-          <option value="20">20 Overs</option>
-          <option value="50">50 Overs</option>
+        <select value = {selectedOvers} onChange = {(e) => setSelectedOvers(e.target.value)} className = {errors.selectedOvers ? 'error' : ''}>
+          <option value = "0" selected disabled>-------</option>
+          <option value = "5">5 Overs</option>
+          <option value = "10">10 Overs</option>
+          <option value = "20">20 Overs</option>
+          <option value = "50">50 Overs</option>
 
         </select>
-        {errors.selectedOvers && <p className='error-text'>{errors.selectedOvers}</p>}
+        {errors.selectedOvers && <p className = 'error-text'>{errors.selectedOvers}</p>}
       </div>
       <div>
         <label>Team A:</label>
+<<<<<<< HEAD
         <input type="text" maxlength="15" value={teamA} onChange={(e) => setTeamA(e.target.value)} className={errors.teamA ? 'error' : ''}/>
         {errors.teamA && <p className='error-text'>{errors.teamA}</p>}
       </div>
@@ -73,12 +77,21 @@ const Home = ({addData}) => {
         <label>Team B:</label>
         <input type="text" maxlength="15" value={teamB} onChange={(e) => setTeamB(e.target.value)} className={errors.teamB ? 'error' : ''}/>
         {errors.teamB && <p className='error-text'>{errors.teamB}</p>}
+=======
+        <input type = "text" value = {teamA} onChange = {(e) => setTeamA(e.target.value)} className = {errors.teamA ? 'error' : ''}/>
+        {errors.teamA && <p className = 'error-text'>{errors.teamA}</p>}
       </div>
-      <button onClick={handleStartClick} className='start-btn' >Start</button>
+      <div>
+        <label>Team B:</label>
+        <input type = "text" value = {teamB} onChange = {(e) => setTeamB(e.target.value)} className = {errors.teamB ? 'error' : ''}/>
+        {errors.teamB && <p className = 'error-text'>{errors.teamB}</p>}
+>>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
+      </div>
+      <button onClick = {handleStartClick} className = 'start-btn' >Start</button>
       
     </div>
-      <div className='middle'>
-        <img className='cimg' src={cimg} alt='logo'/>
+      <div className = 'middle'>
+        <img className = 'cimg' src = {cimg} alt = 'logo'/>
       </div>
     </div>
         </>

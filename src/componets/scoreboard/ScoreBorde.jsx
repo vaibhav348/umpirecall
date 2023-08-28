@@ -35,6 +35,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
     const lastTenNumbers = runWicketData.slice(-10);
     const [selectedNumber, setSelectedNumber] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+<<<<<<< HEAD
     const [maxOver, setMexOver] = useState(teamOver.map((team) => team.selectedOvers));
     const [teamone, setTeamOne] = useState(teamOver.map((team) => team.teamA));
     const [teamtwo, setTeamTwo] = useState(teamOver.map((team) => team.teamB));
@@ -48,6 +49,52 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
         if (inning === 1) { handlefirstinneng(); }
         else { handlesecondinneng(); }
     }
+=======
+const [maxOver, setMexOver] = useState( teamOver.map((team)=> team.selectedOvers));
+const [teamone, setTeamOne] = useState( teamOver.map((team)=>team.teamA)); 
+const [teamtwo, setTeamTwo] = useState( teamOver.map((team)=>team.teamB)); 
+
+
+
+const [inning, setInning] = useState(1);
+const [target, setTarget] = useState(0)
+
+const handleinneng=()=>{
+    if(inning === 1){handlefirstinneng();}
+    else {handlesecondinneng();}
+}
+
+//innenig 1 handle
+const handlefirstinneng = () => {
+    if(currentWicket >= 10 || over >= maxOver){
+        
+        setTarget(currentRun+1);
+        setBallCount(0);
+        setCurrentRun(0);
+        setCurrentWicket(0)
+        setOver(0)
+        setRunWicketData([])
+        setInning(inning+1)
+        alert(`first inning is completed and target is ${currentRun+1} from Team ${teamone} !!!` )
+    }
+}
+// const [winnerteam, setwinnerteam]=useState("");
+// const [lossTeam, setLossTeam]= useState("");
+const handlesecondinneng = () => {
+    if(currentWicket<10 && over<maxOver && currentRun>target){
+        // setwinnerteam(teamtwo);
+        // setLossTeam(teamone);
+        // alert(`team ${teamtwo} is winner `)
+        winningdata({
+            winnerteam:teamtwo,
+            lossTeam:teamone,
+        })
+        navigate("/index");
+    }
+    else if(currentWicket >= 10 || over >= maxOver){
+        // setwinnerteam(teamone);
+        // setLossTeam(teamtwo)
+>>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
 
     //innenig 1 handle
     const handlefirstinneng = () => {
@@ -125,17 +172,48 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
 
     return (
         <>
-            <Header undoLastAction={undoLastAction} runWicketData={runWicketData} />
-            <div className='scorecard'>
+            <Header undoLastAction = {undoLastAction} runWicketData = {runWicketData} />
+            <div className = 'scorecard'>
 
 
+<<<<<<< HEAD
                 <div className="upper">
                     <div className="runview">
                         <div className="firstsection">
+=======
+                <div className = "upper">
+                    <div className = "runview">
+                       <div className = "firstsection">
+
+                        <p className = 'runs'>Runs/Out : {currentRun}/{currentWicket}</p>
+                        <p className = 'over'>Over:{over}.{ballCount}/{maxOver}</p>
+                       </div>
+                       <div className = "team">
+                        <div className = "team1">
+                         
+                            <p className = "teamtitle">
+                            {teamone}
+                            </p>
+                            <p className = "target">
+                            {
+                                (inning === 1)
+                                ?
+                                <div>
+                                   Batting
+                                </div>
+                                :
+                                <div>
+
+                                Target:{target}
+                                </div>
+                            }
+                            </p>
+>>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
 
                             <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
                             <p className='over'>Over:{over}.{ballCount}/{maxOver}</p>
                         </div>
+<<<<<<< HEAD
                         <div className="team">
                             <div className="team1">
 
@@ -175,26 +253,49 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
                                             </div>
                                     }</p>
                             </div>
+=======
+                        <div className = "team2">
+                            <p className = "teamtitle">
+                           {teamtwo}
+                            </p>
+                            <p className = "target"> 
+                            {
+                                (inning === 1)
+                                ?
+                                <div>
+                                    Bowling
+                                </div>
+                                :
+                                <div>
+                                    Batting
+                                </div>
+                            }</p>
+>>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
                         </div>
                     </div>
 
 
 
+<<<<<<< HEAD
                     <div className="middle">
                         <img className="cimg" src={cimg} alt="Cricket IMG" style={{ width: "75%" }} />
+=======
+                    <div className = "middle">
+                        <img className = "cimg" src = {cimg} alt = "Cricket IMG" style = {{ width: "90%" }} />
+>>>>>>> d444b9f6c68e7bb939c65abdb6feeb6d22f9934d
                     </div>
                 </div>
-                <div className="umpire">
-                    <p className="tenballrun">Runs of Last 10 Balls</p>
-                    <section className="tenballrun">
+                <div className = "umpire">
+                    <p className = "tenballrun">Runs of Last 10 Balls</p>
+                    <section className = "tenballrun">
                         {lastTenNumbers.length === 0 ? (
-                            <p className="runoftenballs" >Enter first Run...</p>
+                            <p className = "runoftenballs" >Enter first Run...</p>
                         ) :
                             (
-                                <div style={{ display: "flex" }}>
+                                <div style = {{ display: "flex" }}>
 
                                     {lastTenNumbers.map((data, index) => (
-                                        <li className="runoftenballs" key={index}> {data.runs}</li>
+                                        <li className = "runoftenballs" key = {index}> {data.runs}</li>
                                     ))}
                                 </div>
                             )}
@@ -202,20 +303,20 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
                     </section>
                 </div>
 
-                <div className="typeofball">
-                    <div className="noballhandler">
-                        {isPopupOpen && <KeypadPopup onSelectNumber={setSelectedNumber}
-                            setIsPopupOpen={setIsPopupOpen} handleNoBallRuns={handleNoBallRuns} />}
+                <div className = "typeofball">
+                    <div className = "noballhandler">
+                        {isPopupOpen && <KeypadPopup onSelectNumber = {setSelectedNumber}
+                            setIsPopupOpen = {setIsPopupOpen} handleNoBallRuns = {handleNoBallRuns} />}
                     </div>
-                    <button className='decision-btn-noball' onClick={openPopup}>No-Ball</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 1)}>Wicket</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(0, 0)} value={0}> 0</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(1, 0)} value={1}>1</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(2, 0)} value={2}>2</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(3, 0)} value={3}>3</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(4, 0)} value={4}>4</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(5, 0)} value={5}>5</button>
-                    <button className='decision-btn-noball' onClick={() => updateRunWicket(6, 0)} value={6}>6</button>
+                    <button className = 'decision-btn-noball' onClick = {openPopup}>No-Ball</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(0, 1)}>Wicket</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(0, 0)} value = {0}> 0</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(1, 0)} value = {1}>1</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(2, 0)} value = {2}>2</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(3, 0)} value = {3}>3</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(4, 0)} value = {4}>4</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(5, 0)} value = {5}>5</button>
+                    <button className = 'decision-btn-noball' onClick = {() => updateRunWicket(6, 0)} value = {6}>6</button>
                 </div>
             </div>
 
