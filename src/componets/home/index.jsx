@@ -41,21 +41,21 @@ const Home = ({addData}) => {
       teamA:teamA,
       teamB:teamB,
     })
-    if(teamA !== teamB){
-     if (isValid) {
+    if (isValid) {
+       if(teamA !== teamB){
       // Proceed to the score board or perform other actions
       navigate('/ScoreBorde');
     }
+    else{
+      alert("Teams name can't be same");
   }
-  else{
-    alert("Teams name can't be same");
   }
   };
 
 
   return (
     <>
-    <div classNameName = "headerhome">
+    <div className = "headerhome">
                     <h1 className = 'headertitlehome'>UMPIRE-CALL</h1>
       </div>
         <div className = 'homepage'>
@@ -75,12 +75,12 @@ const Home = ({addData}) => {
       </div>
       <div>
         <label>Team A:</label>
-        <input type = "text" maxlength = "15" value = {teamA} placeholder = 'Batting Team' onChange = {(e) => setTeamA(e.target.value)} className = {errors.teamA ? 'error' : ''}/>
+        <input type = "text" maxLength = "15" value = {teamA} placeholder = 'Batting Team' onChange = {(e) => setTeamA(e.target.value)} className = {errors.teamA ? 'error' : ''}/>
         {errors.teamA && <p className = 'error-text'>{errors.teamA}</p>}
       </div>
       <div>
         <label>Team B:</label>
-        <input type = "text" maxlength = "15" value = {teamB} placeholder = 'Bowling Team' onChange = {(e) => setTeamB(e.target.value)} className = {errors.teamB ? 'error' : ''}/>
+        <input type = "text" maxLength = "15" value = {teamB} placeholder = 'Bowling Team' onChange = {(e) => setTeamB(e.target.value)} className = {errors.teamB ? 'error' : ''}/>
         {errors.teamB && <p className = 'error-text'>{errors.teamB}</p>}
       </div>
       <button onClick = {handleStartClick} className = 'start-btn' >Start</button>
@@ -93,5 +93,4 @@ const Home = ({addData}) => {
         </>
   );
 }
-
 export default Home;
