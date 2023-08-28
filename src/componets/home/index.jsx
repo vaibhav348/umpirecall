@@ -26,6 +26,7 @@ const Home = ({addData}) => {
       newErrors.teamB = 'Please fill all the fields';
     }
 
+
     setErrors(newErrors);
 
     return Object.keys(newErrors).length === 0;
@@ -40,10 +41,15 @@ const Home = ({addData}) => {
       teamA:teamA,
       teamB:teamB,
     })
-    if (isValid) {
+    if(teamA !== teamB){
+     if (isValid) {
       // Proceed to the score board or perform other actions
       navigate('/ScoreBorde');
     }
+  }
+  else{
+    alert("Teams name can't be same");
+  }
   };
 
 
