@@ -66,12 +66,12 @@ const Home = ({addData}) => {
       </div>
       <div>
         <label>Team A:</label>
-        <input type="text" value={teamA} onChange={(e) => setTeamA(e.target.value)} className={errors.teamA ? 'error' : ''}/>
+        <input type="text" maxlength="15" value={teamA} onChange={(e) => setTeamA(e.target.value)} className={errors.teamA ? 'error' : ''}/>
         {errors.teamA && <p className='error-text'>{errors.teamA}</p>}
       </div>
       <div>
         <label>Team B:</label>
-        <input type="text" value={teamB} onChange={(e) => setTeamB(e.target.value)} className={errors.teamB ? 'error' : ''}/>
+        <input type="text" maxlength="15" value={teamB} onChange={(e) => setTeamB(e.target.value)} className={errors.teamB ? 'error' : ''}/>
         {errors.teamB && <p className='error-text'>{errors.teamB}</p>}
       </div>
       <button onClick={handleStartClick} className='start-btn' >Start</button>

@@ -34,6 +34,15 @@ li.runoftenballs {
     border: 1px double rgb(255, 255, 255);
     padding: 10px 0px;
 }
+.teamtitle{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+.target{
+    font-size: 1rem;
+    text-transform: lowercase;
+    color: rgb(80, 133, 0);
+}
 p.runs, p.over, .team1, .team2 {
     
     text-shadow: 1px 1px 6px white;
@@ -45,7 +54,7 @@ p.runs, p.over, .team1, .team2 {
     font-family: system-ui;
     border-radius: 10px;
     background: -webkit-linear-gradient(#f4f5ff, #e4fff7);
-    border: 1px solid #d5d5d5;
+    border: 1px solid #e7e7e7;
 }
 button.decision-btn {
     text-transform: uppercase;
@@ -130,7 +139,7 @@ button.undubtn {
     .scorecard {
         margin-top: 4rem;
         display: block;
-        height: 85vh;
+        height: 80vh;
     }
     }
 

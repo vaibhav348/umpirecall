@@ -43,11 +43,12 @@
     color: black;
    }
    img.vs {
-    width: 20vh;
+    width: 10vh;
 }
 h1.teamname {
-  font-family: fantasy;
-  letter-spacing: 3px;
+  text-transform: uppercase;
+  max-width: 40vh;
+  font-size: 1rem;
 }
 .regult_heading{
   font-family: system-ui;
@@ -84,7 +85,7 @@ h1.teamname {
     transform: scale(1, 1);
   }
   50% {
-    transform: scale(1.5, 1.5);
+    transform: scale(1.2, 1.2);
   }
   100% {
     transform: scale(1, 1);

@@ -4,7 +4,6 @@ import Header from "../header/Header";
 import { useState } from 'react'
 import Home from "../home";
 import { useNavigate } from "react-router-dom";
-// import { toHaveErrorMessage } from "@testing-library/jest-dom/matchers";
 
 function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
     const handleNumberClick = (number) => {
@@ -26,9 +25,7 @@ function KeypadPopup({ onSelectNumber, setIsPopupOpen, handleNoBallRuns }) {
     );
 }
 
-
-
-const ScoreBorde = ({teamOver , winningdata}) => {
+const ScoreBorde = ({ teamOver, winningdata }) => {
     const navigate = useNavigate();
     const [runWicketData, setRunWicketData] = useState([]);
     const [currentRun, setCurrentRun] = useState(0);
@@ -38,59 +35,51 @@ const ScoreBorde = ({teamOver , winningdata}) => {
     const lastTenNumbers = runWicketData.slice(-10);
     const [selectedNumber, setSelectedNumber] = useState(null);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-const [maxOver, setMexOver]= useState( teamOver.map((team)=> team.selectedOvers));
-const [teamone, setTeamOne] = useState( teamOver.map((team)=>team.teamA)); 
-const [teamtwo, setTeamTwo] = useState( teamOver.map((team)=>team.teamB)); 
+    const [maxOver, setMexOver] = useState(teamOver.map((team) => team.selectedOvers));
+    const [teamone, setTeamOne] = useState(teamOver.map((team) => team.teamA));
+    const [teamtwo, setTeamTwo] = useState(teamOver.map((team) => team.teamB));
 
 
 
-const [inning, setInning]= useState(1);
-const [target, setTarget]= useState(0)
+    const [inning, setInning] = useState(1);
+    const [target, setTarget] = useState(0)
 
-const handleinneng=()=>{
-    if(inning===1){handlefirstinneng();}
-    else {handlesecondinneng();}
-}
-
-//innenig 1 handle
-const handlefirstinneng=()=>{
-    if(currentWicket>=10 || over>=maxOver){
-        
-        setTarget(currentRun+1);
-        setBallCount(0);
-        setCurrentRun(0);
-        setCurrentWicket(0)
-        setOver(0)
-        setRunWicketData([])
-        setInning(inning+1)
-        alert(`first inning is completed and target is ${currentRun+1} from Team ${teamone} !!!` )
+    const handleinneng = () => {
+        if (inning === 1) { handlefirstinneng(); }
+        else { handlesecondinneng(); }
     }
-}
-// const [winnerteam, setwinnerteam]=useState("");
-// const [lossTeam, setLossTeam]= useState("");
-const handlesecondinneng=()=>{
-    if(currentWicket<10 && over<maxOver && currentRun>target){
-        // setwinnerteam(teamtwo);
-        // setLossTeam(teamone);
-        // alert(`team ${teamtwo} is winner `)
-        winningdata({
-            winnerteam:teamtwo,
-            lossTeam:teamone,
-        })
-        navigate("/index");
-    }
-    else if(currentWicket>=10 || over >= maxOver){
-        // setwinnerteam(teamone);
-        // setLossTeam(teamtwo)
 
-        // alert(`team ${teamone} is winer `);
-        winningdata({
-            winnerteam:teamone,
-            lossTeam:teamtwo,
-          })
-        navigate("/index");
+    //innenig 1 handle
+    const handlefirstinneng = () => {
+        if (currentWicket >= 10 || over >= maxOver) {
+
+            setTarget(currentRun + 1);
+            setBallCount(0);
+            setCurrentRun(0);
+            setCurrentWicket(0)
+            setOver(0)
+            setRunWicketData([])
+            setInning(inning + 1)
+            alert(`first inning is completed and target is ${currentRun + 1} from Team ${teamone} !!!`)
+        }
     }
-}
+
+    const handlesecondinneng = () => {
+        if (currentWicket < 10 && over < maxOver && currentRun > target) {
+            winningdata({
+                winnerteam: teamtwo,
+                lossTeam: teamone,
+            })
+            navigate("/index");
+        }
+        else if (currentWicket >= 10 || over >= maxOver) {
+            winningdata({
+                winnerteam: teamone,
+                lossTeam: teamtwo,
+            })
+            navigate("/index");
+        }
+    }
 
     const openPopup = () => {
         setIsPopupOpen(true);
@@ -101,10 +90,7 @@ const handlesecondinneng=()=>{
         setRunWicketData(newRunWicketData);
         setCurrentRun(currentRun + runs);
         setCurrentWicket(currentWicket + wickets);
-
     }
-
-
 
     // handel over and ball
     const handleBowl = () => {
@@ -114,7 +100,7 @@ const handlesecondinneng=()=>{
             setBallCount(0)
             setOver(over + 1)
         }
-        
+
     };
     const updateRunWicket = (runs, wickets) => {
         const newRunWicketData = [...runWicketData, { runs, wickets, over, ballCount }];
@@ -145,57 +131,57 @@ const handlesecondinneng=()=>{
 
                 <div className="upper">
                     <div className="runview">
-                       <div className="firstsection">
+                        <div className="firstsection">
 
-                        <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
-                        <p className='over'>Over:{over}.{ballCount}/{maxOver}</p>
-                       </div>
-                       <div className="team">
-                        <div className="team1">
-                         
-                            <p className="teamtitle">
-                            {teamone}
-                            </p>
-                            <p className="target">
-                            {
-                                (inning===1)
-                                ?
-                                <div>
-Batting
-                                </div>
-                                :
-                                <div>
-
-                                Target:{target}
-                                </div>
-                            }
-                            </p>
-
+                            <p className='runs'>Runs/Out : {currentRun}/{currentWicket}</p>
+                            <p className='over'>Over:{over}.{ballCount}/{maxOver}</p>
                         </div>
-                        <div className="team2">
-                            <p className="teamtitle">
-                           {teamtwo}
-                            </p>
-                            <p className="target"> 
-                            {
-                                (inning===1)
-                                ?
-                                <div>
-                                    Balling
-                                </div>
-                                :
-                                <div>
-                                    Batting
-                                </div>
-                            }</p>
+                        <div className="team">
+                            <div className="team1">
+
+                                <p className="teamtitle">
+                                    {teamone}
+                                </p>
+                                <p className="target">
+                                    {
+                                        (inning === 1)
+                                            ?
+                                            <div>
+                                                Batting
+                                            </div>
+                                            :
+                                            <div>
+
+                                                Target:{target}
+                                            </div>
+                                    }
+                                </p>
+
+                            </div>
+                            <div className="team2">
+                                <p className="teamtitle">
+                                    {teamtwo}
+                                </p>
+                                <p className="target">
+                                    {
+                                        (inning === 1)
+                                            ?
+                                            <div>
+                                                Balling
+                                            </div>
+                                            :
+                                            <div>
+                                                Batting
+                                            </div>
+                                    }</p>
+                            </div>
                         </div>
                     </div>
-                    </div>
 
-                  
+
 
                     <div className="middle">
-                        <img className="cimg" src={cimg} alt="Cricket IMG" style={{ width: "90%" }} />
+                        <img className="cimg" src={cimg} alt="Cricket IMG" style={{ width: "75%" }} />
                     </div>
                 </div>
                 <div className="umpire">
