@@ -88,7 +88,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
   
     // handle second inning
     const handlesecondinneng = () => {
-        if (currentWicket < 10 && over < maxOver && currentRun > target) {
+        if (currentWicket < 10 && over <= maxOver && currentRun >= target) {
             winningdata({
                 winnerteam: teamtwo,
                 lossTeam: teamone,
@@ -98,7 +98,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
             })
             navigate("/index");
         }
-        else if (currentWicket >= 10 || (over >= maxOver && ballCount >= balls) && currentRun < (target-1) ) {
+        else if ((currentWicket >= 10 || (over >= maxOver && ballCount >= balls)) && currentRun < target ) {
             winningdata({
                 winnerteam: teamone,
                 lossTeam: teamtwo,
@@ -108,10 +108,10 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
             })
             navigate("/index");
         }
-        else if(currentRun === (target-1)){
-            alert("Match is tie")
-            navigate('/')
-        }
+        // else{
+        //     alert("Match tied")
+        //     navigate('/')
+        // }
     }
 
     // handle declair
