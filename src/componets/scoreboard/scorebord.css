@@ -25,6 +25,7 @@ li.runoftenballs {
     justify-content: space-around;
     height:fit-content;
     align-items: center;
+    position: absolute;
 }
 .firstsection, .team {
     display: flex;
@@ -40,7 +41,7 @@ li.runoftenballs {
 }
 .target{
     font-size: 1rem;
-    text-transform: lowercase;
+    text-transform: capitalize;
     color: rgb(80, 133, 0);
 }
 p.runs, p.over, .team1, .team2 {
@@ -85,7 +86,7 @@ button.decision-btn {
 button.decision-btn-noball{
   
     width: 116px;
-    height: 80px;
+    height: 60px;
   }
   button.decision-btn:active{
     transform: scale(1.1);
@@ -185,6 +186,13 @@ button.undubtn {
 }
 .keypad {
     height: 240px;
+}
+.keypad h4{
+    text-Align: "center";
+    font-Weight: 400;
+    margin: "5px";
+    font-Family: "system-ui"; 
+    color: "gray";
 }
 .keypad-buttons {
     display: grid;

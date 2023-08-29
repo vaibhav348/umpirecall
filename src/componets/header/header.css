@@ -4,7 +4,6 @@ header {
   height: auto;
   box-shadow: 0px 0px 10px #c1c1c1;
   align-items: center;
-  position: fixed;
   top: 0;
   justify-content: space-between;
 }
@@ -65,6 +64,8 @@ button.icon {
     background-size: cover;
   background-image: url("../../assets/menu.png");
   height: 30px;
+  right: 0;
+  margin: auto;
 }
 .rightnev {
   display: flex;

@@ -7,7 +7,6 @@ const Winner = ({winningteamdata}) => {
   
 const [winteam, setWinteam]= useState( winningteamdata.map((win)=> win.winnerteam));
 const [lossteam, setLossteam]= useState( winningteamdata.map((loss)=> loss.lossTeam));
-
 const [winScore, setwinScore]= useState( winningteamdata.map((winrun)=>winrun.winScore));
 
   return (
@@ -44,7 +43,7 @@ const [winScore, setwinScore]= useState( winningteamdata.map((winrun)=>winrun.wi
       </div>
 
     <div className="bottom-div">
-      <p className='regult_heading'><span>{winteam}</span> Won by</p>
+      <p className='regult_heading'>Team <span>{winteam}</span> Won </p>
 
 {/* <p className='regult_heading'>{winScore} Runs in 10.8 over</p> */}
     </div>

@@ -20,7 +20,6 @@ const Header = ({ undoLastAction, runWicketData }) => {
             <h1 className='headertitle'>UMPIRE-CALL</h1>
             <div className="rightnev">
 
-            <button className="undubtn" onClick={undoLastAction}>⟳</button>
             <button className="icon" onClick={myFunction}>
                </button>
             </div>
