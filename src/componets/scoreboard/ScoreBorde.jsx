@@ -116,7 +116,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
 
     // handle declair
     const handledeclair = () => {
-           if(inning === 1) {
+           if(inning === 1 && over !== 0 && ballCount !==0) {
            const result = window.confirm("Are you sure")
            if(result)
             {setTeam1run(currentRun)
@@ -136,7 +136,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
             else{}
         }
             else{
-                alert("You can't perform this action in 2 inning")
+                alert("You can't perform this action")
             }
     }
 
