@@ -98,7 +98,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
             })
             navigate("/index");
         }
-        else if ((currentWicket >= 10 || (over >= maxOver && ballCount >= balls)) && currentRun < target ) {
+        else if ((currentWicket >= 10 || (over >= maxOver && ballCount >= balls)) && currentRun < (target-1) ) {
             winningdata({
                 winnerteam: teamone,
                 lossTeam: teamtwo,
@@ -108,15 +108,15 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
             })
             navigate("/index");
         }
-        // else{
-        //     alert("Match tied")
-        //     navigate('/')
-        // }
+        else if((currentWicket <= 10 && (over <= maxOver && ballCount === balls)) && currentRun === (target-1)){
+            alert("Match tied")
+            navigate('/')
+        }
     }
 
     // handle declair
     const handledeclair = () => {
-           if(inning === 1 && over !== 0 && ballCount !==0) {
+           if(inning === 1 && (over !== 0 || ballCount !==0)) {
            const result = window.confirm("Are you sure")
            if(result)
             {setTeam1run(currentRun)
