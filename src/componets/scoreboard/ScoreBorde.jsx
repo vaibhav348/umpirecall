@@ -114,7 +114,7 @@ const ScoreBorde = ({ teamOver, winningdata }) => {
         }
     }
 
-    // handle declair
+    // handle declare
     const handledeclair = () => {
         if (inning === 1 && (over !== 0 || ballCount !== 0)) {
             const result = window.confirm("Are you sure")

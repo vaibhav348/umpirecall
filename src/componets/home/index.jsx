@@ -54,7 +54,6 @@ const Home = ({ addData }) => {
             <select value={selectedOvers} onChange={(e) => setSelectedOvers(e.target.value)} className={errors.selectedOvers ? 'error' : ''}>
               <option value="0" selected disabled>-------</option>
               <option value="1">1 Over</option>
-              <option value="2">2 Overs</option>
               <option value="5">5 Overs</option>
               <option value="10">10 Overs</option>
               <option value="20">20 Overs</option>
